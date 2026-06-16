@@ -28,7 +28,6 @@ Au lancement, le script vérifie si le pilote demandé est présent en local. Si
 | `InstallPrinter.ps1` | Script principal : télécharge le pilote (si besoin) et installe l'imprimante. |
 | `ZIP/` | Archives ZIP des pilotes universels (une par constructeur). |
 | `Guide_Installation.pdf` | Guide d'installation pas à pas. |
-| `Rapport_Projet.docx` | Rapport de projet (contexte, fonctionnement, utilisation). |
 
 ---
 
