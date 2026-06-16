@@ -2,7 +2,7 @@
 .SYNOPSIS
     Installe une imprimante reseau (TCP/IP ou IPP) a partir d'un pilote universel.
     Si le pilote n'est pas present localement, il est telecharge automatiquement
-    depuis le cloud (ZIP) puis extrait dans C:\Windows\Temp\Deessi\PrintersDrivers\<DriverName>.
+    depuis GitHub (ZIP) puis extrait dans C:\PrinterDrivers\<DriverName>.
 
 .DESCRIPTION
     Ce script automatise l'ensemble du processus d'installation d'une imprimante :
@@ -26,7 +26,7 @@
     Protocole de connexion : TCPIP (port RAW 9100) ou IPP (impression via HTTP).
 
 .PARAMETER DriverName
-    Nom du sous-dossier du pilote dans C:\Windows\Temp\Deessi\PrintersDrivers.
+    Nom du sous-dossier du pilote dans C:\PrinterDrivers.
     Ce nom sert egalement a construire l'URL de telechargement du ZIP :
         <BaseURL><DriverName>.zip
     Le nom reel du pilote (tel qu'attendu par Windows) est detecte automatiquement
@@ -41,12 +41,12 @@
 
 .PARAMETER DriversRoot
     Repertoire racine contenant les sous-dossiers de pilotes.
-    Valeur par defaut : C:\Windows\Temp\Deessi\PrintersDrivers.
+    Valeur par defaut : C:\PrinterDrivers.
 
 .PARAMETER BaseURL
     URL de base du cloud contenant les ZIP de pilotes. Le lien complet est
     construit ainsi : <BaseURL><DriverName>.zip
-    Valeur par defaut : cloud DEESSI / FichiersZIP.
+    Valeur par defaut : depot GitHub du projet (dossier ZIP).
 
 .PARAMETER Force
     Force la suppression et la recreation du port s'il existe deja.
@@ -59,7 +59,7 @@
     .\InstallPrinter.ps1 -IP 10.2.8.113 -Type TCPIP -DriverName "EPSON_Universal_Print_Driver" -PrinterName "Epson Accueil"
 
 .NOTES
-    Prerequis : droits administrateur, acces reseau au cloud des pilotes.
+    Prerequis : droits administrateur, acces Internet (GitHub) pour le telechargement.
 
     CODES DE SORTIE (suivent l'ordre d'execution du script) :
        0  = Succes (imprimante installee, ou deja existante en mode Create).
@@ -82,11 +82,11 @@ param(
     [string]$DriverName,
     [string]$PrinterName,
     [ValidateSet('Create','Update')][string]$Mode = 'Create',
-    [string]$DriversRoot = 'C:\Windows\Temp\Deessi\PrintersDrivers',
+    [string]$DriversRoot = 'C:\PrinterDrivers',
 
-    # URL de base du cloud des pilotes. Le ZIP est suppose se nommer
+    # URL de base du depot GitHub (dossier ZIP). Le ZIP est suppose se nommer
     # exactement comme le DriverName, avec l'extension .zip.
-    [string]$BaseURL = 'https://cloud.deessi.net/public.php/dav/files/o3Zn9Pz7ep9gzTY/FichiersZIP/',
+    [string]$BaseURL = 'https://raw.githubusercontent.com/naitkaci-anis/Deploiement-Automatise-Pilotes-Impression/main/ZIP/',
 
     [switch]$Force,
 
