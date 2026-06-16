@@ -116,7 +116,11 @@ Le nom à passer en `-DriverName` correspond au nom de l'archive ZIP (sans `.zip
 
 ---
 
+## Contexte
+
+Projet réalisé chez **DEESSI** (groupe iVision) dans le cadre d'un stage en support infogérance, pour l'automatisation du déploiement des pilotes d'impression sur le parc interne et chez les clients.
+
 ## Auteurs
 
-- **Hichem HAROUNI** — Chef de projet technique / Responsable Industrialisation — *GRC2I / Industrialisation*
-- **Anis NAIT KACI** — Stagiaire en Support infogérance
+- **Hichem HAROUNI** — Chef de projet technique / Responsable Industrialisation — *DEESSI, GRC2I / Industrialisation*
+- **Anis NAIT KACI** — Stagiaire en Support infogérance — *DEESSI*
